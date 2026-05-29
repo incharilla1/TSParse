@@ -1,0 +1,1709 @@
+[
+  {
+    "name": "Primitive",
+    "modifiers": [],
+    "typeParams": [],
+    "type": "TypeAlias",
+    "value": {
+      "members": [
+        {
+          "type": "TypeReference",
+          "name": "string"
+        },
+        {
+          "type": "TypeReference",
+          "name": "number"
+        },
+        {
+          "type": "TypeReference",
+          "name": "boolean"
+        },
+        {
+          "type": "TypeReference",
+          "name": "null"
+        },
+        {
+          "type": "TypeReference",
+          "name": "undefined"
+        }
+      ],
+      "type": "UnionType"
+    }
+  },
+  {
+    "name": "DeepReadonly",
+    "modifiers": [],
+    "typeParams": [
+      {
+        "default": null,
+        "constraint": null,
+        "name": "T"
+      }
+    ],
+    "type": "TypeAlias",
+    "value": {
+      "type": "TypeReference",
+      "name": "T"
+    }
+  },
+  {
+    "name": "Flatten",
+    "modifiers": [],
+    "typeParams": [
+      {
+        "default": null,
+        "constraint": null,
+        "name": "T"
+      }
+    ],
+    "type": "TypeAlias",
+    "value": {
+      "type": "TypeReference",
+      "name": "T"
+    }
+  },
+  {
+    "name": "EventMap",
+    "modifiers": [],
+    "typeParams": [],
+    "type": "TypeAlias",
+    "value": {
+      "members": [
+        {
+          "valueType": {
+            "type": "TypeReference",
+            "name": "MouseEvent"
+          },
+          "readonly": false,
+          "key": "click",
+          "optional": false
+        },
+        {
+          "valueType": {
+            "type": "TypeReference",
+            "name": "PointerEvent"
+          },
+          "readonly": false,
+          "key": "hover",
+          "optional": false
+        },
+        {
+          "valueType": {
+            "type": "TypeReference",
+            "name": "Event"
+          },
+          "readonly": false,
+          "key": "scroll",
+          "optional": false
+        }
+      ],
+      "type": "ObjectType"
+    }
+  },
+  {
+    "name": "EventName",
+    "modifiers": [],
+    "typeParams": [
+      {
+        "default": null,
+        "constraint": {
+          "type": "TypeReference",
+          "name": "string"
+        },
+        "name": "T"
+      }
+    ],
+    "type": "TypeAlias",
+    "value": {
+      "type": "TypeReference",
+      "name": "on:${T}"
+    }
+  },
+  {
+    "name": "AllEvents",
+    "modifiers": [],
+    "typeParams": [],
+    "type": "TypeAlias",
+    "value": {
+      "name": "EventName",
+      "args": [
+        {
+          "type": "KeyofType",
+          "inner": {
+            "right": {
+              "type": "TypeReference",
+              "name": "string"
+            },
+            "type": "IntersectionType",
+            "left": {
+              "type": "TypeReference",
+              "name": "EventMap"
+            }
+          }
+        }
+      ],
+      "type": "GenericType"
+    }
+  },
+  {
+    "generator": false,
+    "returnType": {
+      "type": "TypeReference",
+      "name": "unknown"
+    },
+    "name": "parse",
+    "typeParams": [],
+    "body": null,
+    "params": [
+      {
+        "default": null,
+        "modifiers": [],
+        "tsType": {
+          "type": "TypeReference",
+          "name": "string"
+        },
+        "rest": false,
+        "name": "input",
+        "decorators": [],
+        "optional": false,
+        "type": "Parameter"
+      }
+    ],
+    "decorators": [],
+    "type": "FunctionDeclaration",
+    "modifiers": []
+  },
+  {
+    "generator": false,
+    "returnType": {
+      "name": "Record",
+      "args": [
+        {
+          "type": "TypeReference",
+          "name": "string"
+        },
+        {
+          "type": "TypeReference",
+          "name": "unknown"
+        }
+      ],
+      "type": "GenericType"
+    },
+    "name": "parse",
+    "typeParams": [],
+    "body": null,
+    "params": [
+      {
+        "default": null,
+        "modifiers": [],
+        "tsType": {
+          "type": "TypeReference",
+          "name": "string"
+        },
+        "rest": false,
+        "name": "input",
+        "decorators": [],
+        "optional": false,
+        "type": "Parameter"
+      },
+      {
+        "default": null,
+        "modifiers": [],
+        "tsType": {
+          "type": "TypeReference",
+          "name": "true"
+        },
+        "rest": false,
+        "name": "strict",
+        "decorators": [],
+        "optional": false,
+        "type": "Parameter"
+      }
+    ],
+    "decorators": [],
+    "type": "FunctionDeclaration",
+    "modifiers": []
+  },
+  {
+    "generator": false,
+    "returnType": null,
+    "name": "parse",
+    "typeParams": [],
+    "body": {
+      "type": "BlockStatement",
+      "body": [
+        {
+          "else": null,
+          "condition": {
+            "operator": "===",
+            "right": {
+              "kind": "boolean",
+              "type": "Literal",
+              "value": "true"
+            },
+            "type": "BinaryExpression",
+            "left": {
+              "type": "Identifier",
+              "name": "strict"
+            }
+          },
+          "type": "IfStatement",
+          "then": {
+            "type": "BlockStatement",
+            "body": [
+              {
+                "type": "ReturnStatement",
+                "value": {
+                  "args": [
+                    {
+                      "type": "Identifier",
+                      "name": "input"
+                    }
+                  ],
+                  "callee": {
+                    "property": "parse",
+                    "computed": false,
+                    "type": "MemberExpression",
+                    "optional": false,
+                    "object": {
+                      "type": "Identifier",
+                      "name": "JSON"
+                    }
+                  },
+                  "type": "CallExpression"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "try": {
+            "type": "BlockStatement",
+            "body": [
+              {
+                "type": "ReturnStatement",
+                "value": {
+                  "args": [
+                    {
+                      "type": "Identifier",
+                      "name": "input"
+                    }
+                  ],
+                  "callee": {
+                    "property": "parse",
+                    "computed": false,
+                    "type": "MemberExpression",
+                    "optional": false,
+                    "object": {
+                      "type": "Identifier",
+                      "name": "JSON"
+                    }
+                  },
+                  "type": "CallExpression"
+                }
+              }
+            ]
+          },
+          "finally": null,
+          "type": "TryCatchStatement",
+          "catch": {
+            "body": {
+              "type": "BlockStatement",
+              "body": [
+                {
+                  "type": "ReturnStatement",
+                  "value": {
+                    "kind": "null",
+                    "type": "Literal",
+                    "value": "null"
+                  }
+                }
+              ]
+            },
+            "paramType": null,
+            "param": null
+          }
+        }
+      ]
+    },
+    "params": [
+      {
+        "default": null,
+        "modifiers": [],
+        "tsType": {
+          "type": "TypeReference",
+          "name": "string"
+        },
+        "rest": false,
+        "name": "input",
+        "decorators": [],
+        "optional": false,
+        "type": "Parameter"
+      },
+      {
+        "default": null,
+        "modifiers": [],
+        "tsType": {
+          "type": "TypeReference",
+          "name": "boolean"
+        },
+        "rest": false,
+        "name": "strict",
+        "decorators": [],
+        "optional": true,
+        "type": "Parameter"
+      }
+    ],
+    "decorators": [],
+    "type": "FunctionDeclaration",
+    "modifiers": []
+  },
+  {
+    "name": "UnwrapPromise",
+    "modifiers": [],
+    "typeParams": [
+      {
+        "default": null,
+        "constraint": null,
+        "name": "T"
+      }
+    ],
+    "type": "TypeAlias",
+    "value": {
+      "type": "TypeReference",
+      "name": "T"
+    }
+  },
+  {
+    "name": "Tuple",
+    "modifiers": [],
+    "typeParams": [],
+    "type": "TypeAlias",
+    "value": {
+      "members": [
+        {
+          "type": "TypeReference",
+          "name": "number"
+        },
+        {
+          "type": "TypeReference",
+          "name": "string"
+        },
+        {
+          "type": "TypeReference",
+          "name": "..."
+        },
+        {
+          "elementType": {
+            "type": "TypeReference",
+            "name": "boolean"
+          },
+          "type": "ArrayType"
+        }
+      ],
+      "type": "TupleType"
+    }
+  },
+  {
+    "generator": false,
+    "returnType": null,
+    "name": "tupleTest",
+    "typeParams": [],
+    "body": {
+      "type": "BlockStatement",
+      "body": [
+        {
+          "declarators": [
+            {
+              "tsType": null,
+              "type": "ArrayDestructuring",
+              "pattern": [
+                {
+                  "default": null,
+                  "name": "n",
+                  "rest": false
+                },
+                {
+                  "default": null,
+                  "name": "s",
+                  "rest": false
+                },
+                {
+                  "default": null,
+                  "name": "rest",
+                  "rest": true
+                }
+              ],
+              "initializer": {
+                "type": "Identifier",
+                "name": "args"
+              }
+            }
+          ],
+          "kind": "const",
+          "decorators": [],
+          "type": "VariableDeclaration",
+          "modifiers": []
+        },
+        {
+          "type": "ReturnStatement",
+          "value": {
+            "operator": "+",
+            "right": {
+              "property": "length",
+              "computed": false,
+              "type": "MemberExpression",
+              "optional": false,
+              "object": {
+                "type": "Identifier",
+                "name": "rest"
+              }
+            },
+            "type": "BinaryExpression",
+            "left": {
+              "operator": "+",
+              "right": {
+                "type": "Identifier",
+                "name": "n"
+              },
+              "type": "BinaryExpression",
+              "left": {
+                "type": "Identifier",
+                "name": "s"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "params": [
+      {
+        "default": null,
+        "modifiers": [],
+        "tsType": {
+          "type": "TypeReference",
+          "name": "Tuple"
+        },
+        "rest": true,
+        "name": "args",
+        "decorators": [],
+        "optional": false,
+        "type": "Parameter"
+      }
+    ],
+    "decorators": [],
+    "type": "FunctionDeclaration",
+    "modifiers": []
+  },
+  {
+    "name": "Json",
+    "modifiers": [],
+    "typeParams": [],
+    "type": "TypeAlias",
+    "value": {
+      "type": "TypeReference",
+      "name": "|"
+    }
+  },
+  {
+    "generator": false,
+    "returnType": {
+      "type": "TypeReference",
+      "name": "T"
+    },
+    "name": "getValue",
+    "typeParams": [
+      {
+        "default": null,
+        "constraint": {
+          "type": "TypeReference",
+          "name": "boolean"
+        },
+        "name": "T"
+      }
+    ],
+    "body": null,
+    "params": [
+      {
+        "default": null,
+        "modifiers": [],
+        "tsType": {
+          "type": "TypeReference",
+          "name": "T"
+        },
+        "rest": false,
+        "name": "flag",
+        "decorators": [],
+        "optional": false,
+        "type": "Parameter"
+      }
+    ],
+    "decorators": [],
+    "type": "FunctionDeclaration",
+    "modifiers": []
+  },
+  {
+    "declarators": [
+      {
+        "name": "i",
+        "tsType": null,
+        "type": "VariableDeclarator",
+        "optional": false,
+        "initializer": {
+          "kind": "number",
+          "type": "Literal",
+          "value": "0"
+        }
+      }
+    ],
+    "kind": "let",
+    "decorators": [],
+    "type": "VariableDeclaration",
+    "modifiers": []
+  },
+  {
+    "expression": {
+      "operator": "<",
+      "right": {
+        "kind": "number",
+        "type": "Literal",
+        "value": "10"
+      },
+      "type": "BinaryExpression",
+      "left": {
+        "type": "Identifier",
+        "name": "i"
+      }
+    },
+    "type": "ExpressionStatement"
+  },
+  {
+    "expression": {
+      "operand": {
+        "type": "Identifier",
+        "name": "i"
+      },
+      "operator": "++",
+      "prefix": false,
+      "type": "UpdateExpression"
+    },
+    "type": "ExpressionStatement"
+  },
+  {
+    "declarators": [
+      {
+        "name": "j",
+        "tsType": null,
+        "type": "VariableDeclarator",
+        "optional": false,
+        "initializer": {
+          "kind": "number",
+          "type": "Literal",
+          "value": "0"
+        }
+      }
+    ],
+    "kind": "let",
+    "decorators": [],
+    "type": "VariableDeclaration",
+    "modifiers": []
+  },
+  {
+    "expression": {
+      "operator": "<",
+      "right": {
+        "kind": "number",
+        "type": "Literal",
+        "value": "10"
+      },
+      "type": "BinaryExpression",
+      "left": {
+        "type": "Identifier",
+        "name": "j"
+      }
+    },
+    "type": "ExpressionStatement"
+  },
+  {
+    "expression": {
+      "operand": {
+        "type": "Identifier",
+        "name": "j"
+      },
+      "operator": "++",
+      "prefix": false,
+      "type": "UpdateExpression"
+    },
+    "type": "ExpressionStatement"
+  },
+  {
+    "else": null,
+    "condition": {
+      "operator": ">",
+      "right": {
+        "kind": "number",
+        "type": "Literal",
+        "value": "5"
+      },
+      "type": "BinaryExpression",
+      "left": {
+        "type": "Identifier",
+        "name": "j"
+      }
+    },
+    "type": "IfStatement",
+    "then": {
+      "type": "ContinueStatement"
+    }
+  },
+  {
+    "expression": {
+      "type": "Identifier",
+      "name": "inner"
+    },
+    "type": "ExpressionStatement"
+  },
+  {
+    "type": "ReturnStatement",
+    "value": {
+      "type": "Identifier",
+      "name": "input"
+    }
+  },
+  {
+    "declarators": [
+      {
+        "name": "tricky",
+        "tsType": null,
+        "type": "VariableDeclarator",
+        "optional": false,
+        "initializer": {
+          "operator": "<<",
+          "right": {
+            "operator": "+",
+            "right": {
+              "kind": "number",
+              "type": "Literal",
+              "value": "3"
+            },
+            "type": "BinaryExpression",
+            "left": {
+              "kind": "number",
+              "type": "Literal",
+              "value": "2"
+            }
+          },
+          "type": "BinaryExpression",
+          "left": {
+            "kind": "number",
+            "type": "Literal",
+            "value": "1"
+          }
+        }
+      }
+    ],
+    "kind": "const",
+    "decorators": [],
+    "type": "VariableDeclaration",
+    "modifiers": []
+  },
+  {
+    "declarators": [
+      {
+        "name": "mixed",
+        "tsType": null,
+        "type": "VariableDeclarator",
+        "optional": false,
+        "initializer": {
+          "operator": "+",
+          "right": {
+            "kind": "number",
+            "type": "Literal",
+            "value": "1"
+          },
+          "type": "BinaryExpression",
+          "left": {
+            "operator": "-",
+            "right": {
+              "kind": "number",
+              "type": "Literal",
+              "value": "4"
+            },
+            "type": "BinaryExpression",
+            "left": {
+              "operator": "*",
+              "right": {
+                "kind": "number",
+                "type": "Literal",
+                "value": "3"
+              },
+              "type": "BinaryExpression",
+              "left": {
+                "operator": "/",
+                "right": {
+                  "kind": "number",
+                  "type": "Literal",
+                  "value": "2"
+                },
+                "type": "BinaryExpression",
+                "left": {
+                  "kind": "number",
+                  "type": "Literal",
+                  "value": "10"
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "kind": "const",
+    "decorators": [],
+    "type": "VariableDeclaration",
+    "modifiers": []
+  },
+  {
+    "generator": false,
+    "returnType": null,
+    "name": "Log",
+    "typeParams": [],
+    "body": {
+      "type": "BlockStatement",
+      "body": [
+        {
+          "declarators": [
+            {
+              "name": "original",
+              "tsType": null,
+              "type": "VariableDeclarator",
+              "optional": false,
+              "initializer": {
+                "property": "value",
+                "computed": false,
+                "type": "MemberExpression",
+                "optional": false,
+                "object": {
+                  "type": "Identifier",
+                  "name": "descriptor"
+                }
+              }
+            }
+          ],
+          "kind": "const",
+          "decorators": [],
+          "type": "VariableDeclaration",
+          "modifiers": []
+        },
+        {
+          "expression": {
+            "operator": "=",
+            "right": {
+              "generator": false,
+              "returnType": null,
+              "name": null,
+              "typeParams": [],
+              "body": {
+                "type": "BlockStatement",
+                "body": [
+                  {
+                    "type": "ReturnStatement",
+                    "value": {
+                      "args": [
+                        {
+                          "type": "Identifier",
+                          "name": "this"
+                        },
+                        {
+                          "type": "Identifier",
+                          "name": "args"
+                        }
+                      ],
+                      "callee": {
+                        "property": "apply",
+                        "computed": false,
+                        "type": "MemberExpression",
+                        "optional": false,
+                        "object": {
+                          "type": "Identifier",
+                          "name": "original"
+                        }
+                      },
+                      "type": "CallExpression"
+                    }
+                  }
+                ]
+              },
+              "params": [
+                {
+                  "default": null,
+                  "modifiers": [],
+                  "tsType": {
+                    "elementType": {
+                      "type": "TypeReference",
+                      "name": "any"
+                    },
+                    "type": "ArrayType"
+                  },
+                  "rest": true,
+                  "name": "args",
+                  "decorators": [],
+                  "optional": false,
+                  "type": "Parameter"
+                }
+              ],
+              "decorators": [],
+              "type": "FunctionDeclaration",
+              "modifiers": []
+            },
+            "type": "AssignmentExpression",
+            "left": {
+              "property": "value",
+              "computed": false,
+              "type": "MemberExpression",
+              "optional": false,
+              "object": {
+                "type": "Identifier",
+                "name": "descriptor"
+              }
+            }
+          },
+          "type": "ExpressionStatement"
+        },
+        {
+          "type": "ReturnStatement",
+          "value": {
+            "type": "Identifier",
+            "name": "descriptor"
+          }
+        }
+      ]
+    },
+    "params": [
+      {
+        "default": null,
+        "modifiers": [],
+        "tsType": {
+          "type": "TypeReference",
+          "name": "any"
+        },
+        "rest": false,
+        "name": "target",
+        "decorators": [],
+        "optional": false,
+        "type": "Parameter"
+      },
+      {
+        "default": null,
+        "modifiers": [],
+        "tsType": {
+          "type": "TypeReference",
+          "name": "string"
+        },
+        "rest": false,
+        "name": "key",
+        "decorators": [],
+        "optional": false,
+        "type": "Parameter"
+      },
+      {
+        "default": null,
+        "modifiers": [],
+        "tsType": {
+          "type": "TypeReference",
+          "name": "PropertyDescriptor"
+        },
+        "rest": false,
+        "name": "descriptor",
+        "decorators": [],
+        "optional": false,
+        "type": "Parameter"
+      }
+    ],
+    "decorators": [],
+    "type": "FunctionDeclaration",
+    "modifiers": []
+  },
+  {
+    "modifiers": [],
+    "superClass": null,
+    "members": [
+      {
+        "type": "ClassField",
+        "tsType": {
+          "name": "Map",
+          "args": [
+            {
+              "type": "TypeReference",
+              "name": "string"
+            },
+            {
+              "type": "TypeReference",
+              "name": "unknown"
+            }
+          ],
+          "type": "GenericType"
+        },
+        "optional": false,
+        "decorators": [],
+        "initializer": {
+          "args": [],
+          "callee": {
+            "args": [],
+            "callee": {
+              "type": "Identifier",
+              "name": "Map"
+            },
+            "type": "CallExpression"
+          },
+          "type": "NewExpression"
+        },
+        "name": "store",
+        "modifiers": [
+          "private"
+        ]
+      },
+      {
+        "generator": false,
+        "returnType": {
+          "type": "TypeReference",
+          "name": "void"
+        },
+        "name": "setValue",
+        "typeParams": [
+          {
+            "default": null,
+            "constraint": null,
+            "name": "T"
+          }
+        ],
+        "body": {
+          "type": "BlockStatement",
+          "body": [
+            {
+              "expression": {
+                "args": [
+                  {
+                    "type": "Identifier",
+                    "name": "key"
+                  },
+                  {
+                    "type": "Identifier",
+                    "name": "value"
+                  }
+                ],
+                "callee": {
+                  "property": "set",
+                  "computed": false,
+                  "type": "MemberExpression",
+                  "optional": false,
+                  "object": {
+                    "property": "store",
+                    "computed": false,
+                    "type": "MemberExpression",
+                    "optional": false,
+                    "object": {
+                      "type": "Identifier",
+                      "name": "this"
+                    }
+                  }
+                },
+                "type": "CallExpression"
+              },
+              "type": "ExpressionStatement"
+            }
+          ]
+        },
+        "optional": false,
+        "params": [
+          {
+            "default": null,
+            "modifiers": [],
+            "tsType": {
+              "type": "TypeReference",
+              "name": "string"
+            },
+            "rest": false,
+            "name": "key",
+            "decorators": [],
+            "optional": false,
+            "type": "Parameter"
+          },
+          {
+            "default": null,
+            "modifiers": [],
+            "tsType": {
+              "type": "TypeReference",
+              "name": "T"
+            },
+            "rest": false,
+            "name": "value",
+            "decorators": [],
+            "optional": false,
+            "type": "Parameter"
+          }
+        ],
+        "decorators": [
+          {
+            "name": "Log",
+            "args": [],
+            "type": "Decorator"
+          }
+        ],
+        "type": "MethodDefinition",
+        "modifiers": []
+      },
+      {
+        "generator": false,
+        "returnType": {
+          "members": [
+            {
+              "type": "TypeReference",
+              "name": "T"
+            },
+            {
+              "type": "TypeReference",
+              "name": "undefined"
+            }
+          ],
+          "type": "UnionType"
+        },
+        "name": "getValue",
+        "typeParams": [
+          {
+            "default": null,
+            "constraint": null,
+            "name": "T"
+          }
+        ],
+        "body": {
+          "type": "BlockStatement",
+          "body": [
+            {
+              "type": "ReturnStatement",
+              "value": {
+                "expression": {
+                  "args": [
+                    {
+                      "type": "Identifier",
+                      "name": "key"
+                    }
+                  ],
+                  "callee": {
+                    "property": "get",
+                    "computed": false,
+                    "type": "MemberExpression",
+                    "optional": false,
+                    "object": {
+                      "property": "store",
+                      "computed": false,
+                      "type": "MemberExpression",
+                      "optional": false,
+                      "object": {
+                        "type": "Identifier",
+                        "name": "this"
+                      }
+                    }
+                  },
+                  "type": "CallExpression"
+                },
+                "tsType": {
+                  "members": [
+                    {
+                      "type": "TypeReference",
+                      "name": "T"
+                    },
+                    {
+                      "type": "TypeReference",
+                      "name": "undefined"
+                    }
+                  ],
+                  "type": "UnionType"
+                },
+                "type": "AsExpression"
+              }
+            }
+          ]
+        },
+        "optional": false,
+        "params": [
+          {
+            "default": null,
+            "modifiers": [],
+            "tsType": {
+              "type": "TypeReference",
+              "name": "string"
+            },
+            "rest": false,
+            "name": "key",
+            "decorators": [],
+            "optional": false,
+            "type": "Parameter"
+          }
+        ],
+        "decorators": [
+          {
+            "name": "Log",
+            "args": [],
+            "type": "Decorator"
+          }
+        ],
+        "type": "MethodDefinition",
+        "modifiers": []
+      }
+    ],
+    "typeParams": [],
+    "name": "Service",
+    "implements": [],
+    "decorators": [],
+    "type": "ClassDeclaration"
+  },
+  {
+    "name": "API",
+    "modifiers": [],
+    "body": {
+      "type": "BlockStatement",
+      "body": [
+        {
+          "type": "ExportDeclaration",
+          "declaration": {
+            "name": "User",
+            "modifiers": [],
+            "typeParams": [],
+            "type": "TypeAlias",
+            "value": {
+              "members": [
+                {
+                  "valueType": {
+                    "type": "TypeReference",
+                    "name": "number"
+                  },
+                  "readonly": false,
+                  "key": "id",
+                  "optional": false
+                },
+                {
+                  "valueType": {
+                    "type": "TypeReference",
+                    "name": "string"
+                  },
+                  "readonly": false,
+                  "key": "name",
+                  "optional": false
+                }
+              ],
+              "type": "ObjectType"
+            }
+          }
+        },
+        {
+          "type": "ExportDeclaration",
+          "declaration": {
+            "generator": false,
+            "returnType": {
+              "type": "TypeReference",
+              "name": "User"
+            },
+            "name": "createUser",
+            "typeParams": [],
+            "body": {
+              "type": "BlockStatement",
+              "body": [
+                {
+                  "type": "ReturnStatement",
+                  "value": {
+                    "properties": [
+                      {
+                        "value": {
+                          "args": [],
+                          "callee": {
+                            "property": "random",
+                            "computed": false,
+                            "type": "MemberExpression",
+                            "optional": false,
+                            "object": {
+                              "type": "Identifier",
+                              "name": "Math"
+                            }
+                          },
+                          "type": "CallExpression"
+                        },
+                        "computed": false,
+                        "type": "ObjectProperty",
+                        "key": "id"
+                      },
+                      {
+                        "shorthand": true,
+                        "computed": false,
+                        "type": "ObjectProperty",
+                        "key": "name"
+                      }
+                    ],
+                    "type": "ObjectExpression"
+                  }
+                }
+              ]
+            },
+            "params": [
+              {
+                "default": null,
+                "modifiers": [],
+                "tsType": {
+                  "type": "TypeReference",
+                  "name": "string"
+                },
+                "rest": false,
+                "name": "name",
+                "decorators": [],
+                "optional": false,
+                "type": "Parameter"
+              }
+            ],
+            "decorators": [],
+            "type": "FunctionDeclaration",
+            "modifiers": []
+          }
+        }
+      ]
+    },
+    "type": "NamespaceDeclaration"
+  },
+  {
+    "name": "A",
+    "modifiers": [],
+    "typeParams": [],
+    "type": "TypeAlias",
+    "value": {
+      "members": [
+        {
+          "valueType": {
+            "type": "TypeReference",
+            "name": "string"
+          },
+          "readonly": false,
+          "key": "a",
+          "optional": false
+        },
+        {
+          "valueType": {
+            "type": "TypeReference",
+            "name": "number"
+          },
+          "readonly": false,
+          "key": "shared",
+          "optional": false
+        }
+      ],
+      "type": "ObjectType"
+    }
+  },
+  {
+    "name": "B",
+    "modifiers": [],
+    "typeParams": [],
+    "type": "TypeAlias",
+    "value": {
+      "members": [
+        {
+          "valueType": {
+            "type": "TypeReference",
+            "name": "number"
+          },
+          "readonly": false,
+          "key": "b",
+          "optional": false
+        },
+        {
+          "valueType": {
+            "type": "TypeReference",
+            "name": "string"
+          },
+          "readonly": false,
+          "key": "shared",
+          "optional": false
+        }
+      ],
+      "type": "ObjectType"
+    }
+  },
+  {
+    "name": "C",
+    "modifiers": [],
+    "typeParams": [],
+    "type": "TypeAlias",
+    "value": {
+      "right": {
+        "type": "TypeReference",
+        "name": "B"
+      },
+      "type": "IntersectionType",
+      "left": {
+        "type": "TypeReference",
+        "name": "A"
+      }
+    }
+  },
+  {
+    "name": "WeirdUnion",
+    "modifiers": [],
+    "typeParams": [],
+    "type": "TypeAlias",
+    "value": {
+      "members": [
+        {
+          "type": "TypeReference",
+          "name": "A"
+        },
+        {
+          "type": "TypeReference",
+          "name": "B"
+        }
+      ],
+      "type": "UnionType"
+    }
+  },
+  {
+    "declarators": [
+      {
+        "name": "key",
+        "tsType": null,
+        "type": "VariableDeclarator",
+        "optional": false,
+        "initializer": {
+          "kind": "string",
+          "type": "Literal",
+          "value": "dynamic_key"
+        }
+      }
+    ],
+    "kind": "const",
+    "decorators": [],
+    "type": "VariableDeclaration",
+    "modifiers": []
+  },
+  {
+    "declarators": [
+      {
+        "name": "obj",
+        "tsType": null,
+        "type": "VariableDeclarator",
+        "optional": false,
+        "initializer": {
+          "expression": {
+            "properties": [
+              {
+                "value": {
+                  "kind": "number",
+                  "type": "Literal",
+                  "value": "123"
+                },
+                "computed": true,
+                "type": "ObjectProperty",
+                "key": {
+                  "type": "Identifier",
+                  "name": "key"
+                }
+              },
+              {
+                "value": {
+                  "kind": "string",
+                  "type": "Literal",
+                  "value": "value"
+                },
+                "computed": true,
+                "type": "ObjectProperty",
+                "key": {
+                  "operator": "+",
+                  "right": {
+                    "kind": "string",
+                    "type": "Literal",
+                    "value": "_key"
+                  },
+                  "type": "BinaryExpression",
+                  "left": {
+                    "kind": "string",
+                    "type": "Literal",
+                    "value": "computed"
+                  }
+                }
+              }
+            ],
+            "type": "ObjectExpression"
+          },
+          "tsType": {
+            "type": "TypeReference",
+            "name": "const"
+          },
+          "type": "AsExpression"
+        }
+      }
+    ],
+    "kind": "const",
+    "decorators": [],
+    "type": "VariableDeclaration",
+    "modifiers": []
+  },
+  {
+    "name": "Infinite",
+    "modifiers": [],
+    "typeParams": [
+      {
+        "default": null,
+        "constraint": null,
+        "name": "T"
+      }
+    ],
+    "type": "TypeAlias",
+    "value": {
+      "members": [
+        {
+          "valueType": {
+            "type": "TypeReference",
+            "name": "T"
+          },
+          "readonly": false,
+          "key": "value",
+          "optional": false
+        },
+        {
+          "valueType": {
+            "name": "Infinite",
+            "args": [
+              {
+                "type": "TypeReference",
+                "name": "T"
+              }
+            ],
+            "type": "GenericType"
+          },
+          "readonly": false,
+          "key": "next",
+          "optional": false
+        }
+      ],
+      "type": "ObjectType"
+    }
+  },
+  {
+    "name": "Fn",
+    "modifiers": [],
+    "typeParams": [],
+    "type": "TypeAlias",
+    "value": {
+      "type": "TypeReference",
+      "name": "<"
+    }
+  },
+  {
+    "expression": {
+      "type": "Identifier",
+      "name": "T"
+    },
+    "type": "ExpressionStatement"
+  },
+  {
+    "generator": true,
+    "returnType": null,
+    "name": "stream",
+    "typeParams": [],
+    "body": {
+      "type": "BlockStatement",
+      "body": [
+        {
+          "declarators": [
+            {
+              "name": "i",
+              "tsType": null,
+              "type": "VariableDeclarator",
+              "optional": false,
+              "initializer": {
+                "kind": "number",
+                "type": "Literal",
+                "value": "0"
+              }
+            }
+          ],
+          "kind": "let",
+          "decorators": [],
+          "type": "VariableDeclaration",
+          "modifiers": []
+        },
+        {
+          "body": {
+            "type": "BlockStatement",
+            "body": [
+              {
+                "expression": {
+                  "operand": {
+                    "operand": {
+                      "type": "Identifier",
+                      "name": "i"
+                    },
+                    "operator": "++",
+                    "prefix": false,
+                    "type": "UpdateExpression"
+                  },
+                  "type": "YieldExpression",
+                  "delegate": false
+                },
+                "type": "ExpressionStatement"
+              }
+            ]
+          },
+          "condition": {
+            "operator": "<",
+            "right": {
+              "type": "Identifier",
+              "name": "limit"
+            },
+            "type": "BinaryExpression",
+            "left": {
+              "type": "Identifier",
+              "name": "i"
+            }
+          },
+          "type": "WhileStatement"
+        }
+      ]
+    },
+    "params": [
+      {
+        "default": null,
+        "modifiers": [],
+        "tsType": {
+          "type": "TypeReference",
+          "name": "number"
+        },
+        "rest": false,
+        "name": "limit",
+        "decorators": [],
+        "optional": false,
+        "type": "Parameter"
+      }
+    ],
+    "decorators": [],
+    "type": "FunctionDeclaration",
+    "modifiers": [
+      "async"
+    ]
+  },
+  {
+    "name": "Response",
+    "modifiers": [],
+    "typeParams": [],
+    "type": "TypeAlias",
+    "value": {
+      "members": [
+        {
+          "type": "TypeReference",
+          "name": "status"
+        },
+        {
+          "type": "TypeReference",
+          "name": ":"
+        },
+        {
+          "type": "TypeReference",
+          "name": "number"
+        },
+        {
+          "type": "TypeReference",
+          "name": "message"
+        },
+        {
+          "type": "TypeReference",
+          "name": ":"
+        },
+        {
+          "type": "TypeReference",
+          "name": "string"
+        },
+        {
+          "type": "TypeReference",
+          "name": "data"
+        },
+        {
+          "type": "TypeReference",
+          "name": "?"
+        },
+        {
+          "type": "TypeReference",
+          "name": ":"
+        },
+        {
+          "type": "TypeReference",
+          "name": "unknown"
+        }
+      ],
+      "type": "TupleType"
+    }
+  },
+  {
+    "declarators": [
+      {
+        "name": "res",
+        "tsType": {
+          "type": "TypeReference",
+          "name": "Response"
+        },
+        "type": "VariableDeclarator",
+        "optional": false,
+        "initializer": {
+          "elements": [
+            {
+              "kind": "number",
+              "type": "Literal",
+              "value": "200"
+            },
+            {
+              "kind": "string",
+              "type": "Literal",
+              "value": "OK"
+            },
+            {
+              "properties": [
+                {
+                  "value": {
+                    "kind": "boolean",
+                    "type": "Literal",
+                    "value": "true"
+                  },
+                  "computed": false,
+                  "type": "ObjectProperty",
+                  "key": "ok"
+                }
+              ],
+              "type": "ObjectExpression"
+            }
+          ],
+          "type": "ArrayExpression"
+        }
+      }
+    ],
+    "kind": "const",
+    "decorators": [],
+    "type": "VariableDeclaration",
+    "modifiers": []
+  },
+  {
+    "source": null,
+    "specifiers": [
+      {
+        "orig": "Service",
+        "alias": "Service"
+      },
+      {
+        "orig": "API",
+        "alias": "API"
+      },
+      {
+        "orig": "parse",
+        "alias": "parse"
+      },
+      {
+        "orig": "wrap",
+        "alias": "wrap"
+      }
+    ],
+    "type": "ExportNamed"
+  }
+]
