@@ -1,10 +1,12 @@
 **TSParse** is a typescript parser written in powershell
 # How to use:
-```tsparser.ps1 example.ts (ast|ssa) (-verbose)```
+Usage:
+  ```tsparser.ps1 <file.ts> [ast|ssa] [-verbose]```
 
-ast (default)
-
--verbose (optional)
+Options:
+  ast       gen AST output (default)
+  ssa       gen SSA output
+  -verbose  Enable logging
 
 ## Notes:
 this is NOT meant to be used on actual projects
