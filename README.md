@@ -3,13 +3,13 @@
 Usage:
   ```tsparser.ps1 <file.ts> [ast|ssa] [-verbose]```
 
-Options:
-
-  ast       gen AST output (default)
+### Options:
+ 
+  **ast       gen AST output (default)**
   
-  ssa       gen SSA output
+  **ssa       gen SSA output**
   
-  -verbose  Enable logging
+  **-verbose  Enable logging**
 
 ## Notes:
 this is NOT meant to be used on actual projects
