@@ -4,8 +4,11 @@ Usage:
   ```tsparser.ps1 <file.ts> [ast|ssa] [-verbose]```
 
 Options:
+
   ast       gen AST output (default)
+  
   ssa       gen SSA output
+  
   -verbose  Enable logging
 
 ## Notes:
