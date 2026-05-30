@@ -18,5 +18,9 @@ its just a thing i thought would be fun to make
 
 it took awhile ngl and was pretty hard
 
+this will NOT work if you use it on the pre-installed powershell on windows
+
+you need to download the newest version of powershell (download in requirements)
+
 # Requirements:
 [Powershell 7+](https://github.com/powershell/powershell/releases/latest)
